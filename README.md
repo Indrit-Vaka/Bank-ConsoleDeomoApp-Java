@@ -1,2 +1,2 @@
-# Banking-Java
+# Bank Console Demo App-Java
 A simple Bank console app in java
