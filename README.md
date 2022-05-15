@@ -3,13 +3,13 @@ A simple Bank console app in java By Indrit Vaka
 In this demo Console app i have shown how to use basik OOB (object oriented programing) programing
 
 The project includes
-    - Methods, Functions
-    - Object
-    - Constractors
-    - Overloading
-    - The Geter
-    - The Setter
-    - Lists, arreys And more
+   1. Methods, Functions
+   2. Object
+   3. Constractors
+   4. Overloading
+   5. The Geter
+   6. The Setter
+   7. Lists, arreys And more
 
 # What you can do with it
 1. You can create defrent type of bank account
