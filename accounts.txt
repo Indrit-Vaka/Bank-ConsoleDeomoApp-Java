@@ -1,2 +1,0 @@
-UerName,PIN,1
-Indrit Vaka,0034,20000
