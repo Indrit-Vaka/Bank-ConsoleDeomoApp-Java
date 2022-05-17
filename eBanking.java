@@ -10,7 +10,7 @@ public class eBanking extends BankAccount {
     static int count = 0;
     private String name;
     private String IBN;
-
+    public static boolean allAccountCreated;
     List<Transations> transations = new ArrayList<>();
 
     public eBanking(String name) {
@@ -19,14 +19,18 @@ public class eBanking extends BankAccount {
         PIN = generateRanodmPIN();
         addCommonDetalis();
     }
+    
 
+  
     public eBanking(String name, String pin, double balance) {
         Depozit(balance);
         this.name = name;
         PIN = pin;
         addCommonDetalis();
-        welcome();
-        hr();
+        if(allAccountCreated){
+            welcome();
+            hr();
+        }
     }
 
     void addCommonDetalis() {
@@ -54,6 +58,7 @@ public class eBanking extends BankAccount {
                     + "\n\t4 qe te ndryshoni PIN-in"
                     + "\n\t5 qe te transferoni para te nje person tjeter"
                     + "\n\t6 qe te shikoni tranziksionet qe keni bere"
+                    + "\n\t10 qe te hyni si admin"
                     + "\n\t   cdo nr tjeter qe te mbyllni applikacionin");
             n = sc.nextInt();
             sc.nextLine();//konsumojme rrjeshtin
@@ -90,13 +95,37 @@ public class eBanking extends BankAccount {
                 case 6:
                     showTransactions();
                     break;
+                    case 10:
+                    admin();
+                    break;
                 default:
                     return;
             }
             hr();
         }
     }
+    void admin(){
+        System.out.println("Shtypni \n\t1 per te pare listen e llogarive te krijuara");
+        Scanner sc = new Scanner(System.in);
+        
+        if(sc.nextInt() == 1){
+            hr();
+            System.out.println("\nName: \t\tPIN\t\tBalance");
+            for (int i = 0; i < accounts.length; i++) {
+                try {
+                    System.out.printf("%n%s \t\t%s\t\t%f", 
+                    accounts[i].name,
+                    accounts[i].PIN,
+                    accounts[i].balance
+                    );
+                } catch (Exception e) {
+                    //TODO: handle exception
+                }
+               
+            }
+        }
 
+    }
     void transfer(double amount, String accNumber) {
         hr();
         for (int i = 0; i < accounts.length; i++) {
@@ -153,6 +182,13 @@ public class eBanking extends BankAccount {
         transaction.amount = amount;
         transaction.note = note;
         transations.add(transaction);
+        SaveTransactrions();
+    }
+
+    void SaveTransactrions(){
+        for (var tr : transations) {
+            FileIV.Append("Transactions.txt", tr.dateTime + " "+ tr.amount+" "+ tr.note );
+        }
     }
 }
 
