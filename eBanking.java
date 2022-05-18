@@ -39,7 +39,6 @@ public class eBanking extends BankAccount {
         numberOfAccounts++;
         count++;
     }
-
     private void welcome() {
         System.out.printf("Hello %s Welcome to eBanking", name);
         hr();
@@ -145,7 +144,6 @@ public class eBanking extends BankAccount {
         System.out.println("Nuk ekziston nje llogari me ate numer");
         hr();
     }
-
     void detalis() {
         for (int i = 0; i < accounts.length; i++) {
             if (accounts[i] == null)

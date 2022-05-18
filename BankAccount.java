@@ -1,30 +1,30 @@
 import java.util.Scanner;
 
-public abstract class BankAccount {
+public abstract class BankAccount implements BackAccountInterface {
     protected String PIN;
     protected double balance;
     public static int numberOfAccounts;
+    
+    // /**
+    //  * Krijon nje logari bankare me pin random dhe balance 0
+    //  */
+    // public BankAccount() {
+    //     balance = 0;
+    //     PIN = generateRanodmPIN();
+    //     numberOfAccounts++;
+    // }
 
-    /**
-     * Krijon nje logari bankare me pin random dhe balance 0
-     */
-    public BankAccount() {
-        balance = 0;
-        PIN = generateRanodmPIN();
-        numberOfAccounts++;
-    }
-
-    /**
-     * Krijon nje llogari bankare
-     * 
-     * @param balance Balanca fillestare e llogarise
-     * @param PIN     Pini i llogarise bankare 4 shifrore
-     */
-    public BankAccount(double balance, String PIN) {
-        Depozit(balance);
-        this.PIN = PIN;
-        numberOfAccounts++;
-    }
+    // /**
+    //  * Krijon nje llogari bankare
+    //  * 
+    //  * @param balance Balanca fillestare e llogarise
+    //  * @param PIN     Pini i llogarise bankare 4 shifrore
+    //  */
+    // public BankAccount(double balance, String PIN) {
+    //     Depozit(balance);
+    //     this.PIN = PIN;
+    //     numberOfAccounts++;
+    // }
 
     String generateRanodmPIN() {
         String pin = "";
